@@ -1,14 +1,16 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.listen(3000,() => {
     console.log('\n🟢 Server is running...\n');
 });
+
+// TODO: Add JWT authentication, login, signup and addition of users in MongoDB
+// TODO: Added JWT verification for protected routes
 
 app.post('/login',[
     check('name', 'Please enter a name').notEmpty(),
